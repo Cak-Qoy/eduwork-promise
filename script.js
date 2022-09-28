@@ -2,18 +2,15 @@ const cards = document.getElementById('card');
 const searchBar = document.getElementById('cari-list');
 let contentNews = [];
 
-searchBar.addEventListener('keyup', (e) => {
-    const searchString = e.target.value;
-    console.log(searchString);
-    const filterCharacters = contentNews.filter((c) => {
-        return (
-            c.author.includes(searchString)
-            );
-    });
-    console.log(filterCharacters);
-    displayCharacters(filterCharacters);
+searchBar.addEventListener('input', e => {
+    const value = e.target.value.toLowerCase();
+    console.log(value);
+    const filteredSearch = contentNews.filter((c) => {
+            return c.title.toLowerCase().includes(value)
+    })
+    console.log(filteredSearch);
+    displayCharacters(filteredSearch);
 })
-
 
 const loadCharacters = async () => {
     try {
