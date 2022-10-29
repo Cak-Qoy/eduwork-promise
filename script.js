@@ -6,8 +6,9 @@ searchBar.addEventListener('input', e => {
     const value = e.target.value.toLowerCase();
     console.log(value);
     const filteredSearch = contentNews.filter((c) => {
+        // console.log(c);
             return c.title.toLowerCase().includes(value)
-    })
+    });
     console.log(filteredSearch);
     displayCharacters(filteredSearch);
 })
@@ -34,7 +35,7 @@ const displayCharacters = (characters) => {
                         <div class="card-body">
                             <h5 class="card-title">${character.author}</h5>
                             <p class="card-text">${character.content}</p>
-                            <a href="#" class="btn btn-primary">Detail</a>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieDetailModal">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -45,3 +46,4 @@ const displayCharacters = (characters) => {
 };
 
 loadCharacters();
+
