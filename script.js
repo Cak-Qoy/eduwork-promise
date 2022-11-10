@@ -105,7 +105,7 @@ const fetchBisnisNews = async () => {
 }
 
 const fetchOlahragaNews = async () => {
-    const response = await fetch(OLAHRAGA_NEWS+API_KEY);
+    const response = await fetch('https://newsapi.org/v2/top-headlines?country=id&category=sports&apiKey=fc25e05f7a8a4c56bbd092ac3354ad19');
     newsDataArr = [];
     if(response.status >= 200 && response.status < 300) {
         const myJson = await response.json();
